@@ -4,6 +4,8 @@ export const HomeBannerWrap = styled.div`
   height: 80vh;
   width: auto;
   position: relative;
+  background: #ffffff;
+  padding: 0 46px 0 46px;
   > svg {
     height: 100vh;
     width: 100vw;
@@ -11,8 +13,6 @@ export const HomeBannerWrap = styled.div`
 
   > div:last-of-type {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: calc(100% - 80px);
     margin: 0 auto;
@@ -46,4 +46,14 @@ export const HomeBannerWrap = styled.div`
       transform: translateY(-80px);
     }
   }
+`;
+
+export const TitleText = styled.h2`
+  width: 236px;
+  height: 77px;
+  font-family: Abel;
+  font-weight: normal;
+  font-size: 60px;
+  color: #253551;
+  text-decoration: rgb(37, 53, 81);
 `;

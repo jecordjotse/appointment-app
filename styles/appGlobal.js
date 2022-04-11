@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-
+import "@fontsource/dosis";
+import "@fontsource/abel";
 //Divs & Containers
 export const Container = styled.div`
   flex-grow: 1;

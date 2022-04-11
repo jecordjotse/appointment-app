@@ -12,8 +12,8 @@ const ListAppointments = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchSearchResultsStart({ filters }));
+    // eslint-disable-next-line
   }, []);
-  useSelector;
   const handleApprovalChange = (event) => {
     dispatch(
       fetchSearchResultsStart({
@@ -130,7 +130,7 @@ const ListAppointments = () => {
       <div>
         <ul>
           {searchResults?.map((item) => (
-            <li>
+            <li key={item.ref_code}>
               <div>
                 {item.ref_code} - {item.short_desc} - {item.name} -{" "}
                 <Link href="/">

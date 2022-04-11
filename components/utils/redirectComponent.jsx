@@ -7,6 +7,7 @@ const RedirectComponent = ({url}) => {
     useEffect(()=>{
         if(window)
             router.push(url)
+            // eslint-disable-next-line
     },[])
 
   return (

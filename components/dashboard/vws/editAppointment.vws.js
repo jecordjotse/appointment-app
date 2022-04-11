@@ -36,6 +36,7 @@ const EditAppointment = () => {
   };
   useEffect(() => {
     setEditingAppointment(current_appointment);
+    // eslint-disable-next-line
   }, []);
   return (
     <>

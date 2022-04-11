@@ -58,15 +58,18 @@ const ThankYou = () => {
     setAppointment(appointmentDetails);
   }, [appointmentDetails]);
 
-  useEffect(async () => {
-    if (!!appointment)
-      if (
-        !appointment.ref_code ||
-        (!!appointment.ref_code && appointment.ref_code === "")
-      ) {
-        console.log("Add Ref");
-        await assignRefCode(ref_code);
-      }
+  useEffect(() => {
+    async () => {
+      if (!!appointment)
+        if (
+          !appointment.ref_code ||
+          (!!appointment.ref_code && appointment.ref_code === "")
+        ) {
+          console.log("Add Ref");
+          await assignRefCode(ref_code);
+        }
+    };
+    // eslint-disable-next-line
   }, [appointment]);
 
   return (

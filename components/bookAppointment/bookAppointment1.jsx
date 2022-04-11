@@ -45,7 +45,7 @@ const BookAppointment1Component = () => {
     
     
   return (
-      <>
+      <div style={{background: "#ffffff"}}>
       <div>
         <h2>Book Appointment</h2>
         <form onSubmit={verifyClient}>
@@ -86,7 +86,7 @@ const BookAppointment1Component = () => {
             </div>
         </form>
         </div>
-    </>
+    </div>
   )
 }
 

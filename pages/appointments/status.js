@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useSWR from "swr";
 const fetcher = (id) =>
   fetch(`http://localhost:3000/appointments?ref_code=${ref_code}`).then((res) =>
     res.json()

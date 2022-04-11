@@ -85,7 +85,7 @@ const BookAppointment2Component = () => {
 //         return ( <RedirectComponent url='http://localhost:3001/appointments'/> )
 // else
     return (
-        <>
+        <div style={{background: "#ffffff"}} >
             <h2>Book Appointment</h2>
             <form onSubmit={handleBook}>
             <div>
@@ -113,7 +113,7 @@ const BookAppointment2Component = () => {
                 </div>
             </div>
             </form>
-        </>
+        </div>
     )
 }
 

@@ -9,6 +9,7 @@ const Upcoming = () => {
   useEffect(() => {
     dispatch(fetchUpcomingAppointmentsStart(null));
     setAppointments(upcomingAppointments);
+    // eslint-disable-next-line
   }, []);
   return (
     <>

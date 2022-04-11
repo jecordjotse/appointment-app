@@ -5,16 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8080",
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.1",
+    "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@fontsource/abel": "^4.5.4",
+    "@fontsource/dosis": "^4.5.7",
     "@fontsource/roboto": "^4.5.3",
     "@material-ui/core": "^4.12.3",
     "@mui/icons-material": "^5.4.4",
-    "@mui/material": "^5.4.4",
+    "@mui/material": "^5.6.0",
     "@mui/styled-engine-sc": "^5.4.2",
     "next": "12.1.0",
     "react": "17.0.2",

@@ -1,24 +1,40 @@
 import styled, { css } from "styled-components";
 
 export const HeaderWrap = styled.header`
-  padding: 15px 5px;
-  height: 85px !important;
-  position: relative;
-  width: auto;
-  z-index: 99;
+  padding-left: 100px;
+  padding-right: 100px;
+  height: 65px;
+  fill: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
   display: flex;
-  transition: background 400ms ease-in-out;
-  border-bottom: 1px solid transparent;
-  top: 0;
-  left: 0;
+  position: fixed;
+  width: auto;
+  max-width: 90%;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  background: white;
+`;
+
+export const HeaderIcon = styled.img`
+  width: 54px;
+  padding: 6px;
+  background-image: /dromeworks.png;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
 `;
 
 const HeaderItem = css`
-  font-weight: 600;
-  margin: 0;
-  color: black;
-  position: relative;
-
+  width: 100px;
+  height: 20px;
+  font-family: Dosis;
+  font-size: 21px;
+  color: #253551;
+  text-decoration: rgb(37, 53, 81);
+  flex: 0 1 auto;
+  cursor: pointer;
   &.active {
     &::after {
       content: "";
@@ -42,46 +58,25 @@ export const HeaderText = styled.p`
 `;
 
 export const Brand = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: black;
-  width: 30vw;
-  left: 0;
-  position: absolute;
-  img {
-    width: 30px;
-    margin-right: 10px;
-  }
-
-  h5 {
-    margin: 0;
-  }
+  width: auto;
+  display: inline;
+  font-family: "Dosis";
+  font-size: 21px;
+  padding: 15px;
+  color: #6665dd;
+  text-decoration: rgb(102, 101, 221);
 `;
 
 export const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  width: 50vw;
+  width: auto;
+  display: inline-flex;
+  font-family: "Dosis";
+  padding: 15px;
+  position: relative;
   right: 0;
-  position: absolute;
-  > * {
-    margin-left: 40px !important;
-    padding: 8px 10px;
-    border-radius: 5px;
-    transition: 400ms ease-in-out;
-
-    &:hover {
-      background-color: #253551;
-      color: #ffffff;
-    }
-  }
-
-  > p:first-of-type {
-    margin-left: 0;
-  }
+  flex: 1;
+  justify-content: right;
+  flex-direction: row;
 `;
 
 export const SignInButton = styled.div`
@@ -97,3 +92,35 @@ export const SignInButton = styled.div`
     margin-left: 5px;
   }
 `;
+
+export const DashboardButton = styled.button`
+  width: auto;
+  height: 49px;
+  border-radius: 2px;
+  border-width: 0px;
+  background-color: #231736;
+  font-family: Dosis;
+  font-size: 21px;
+  color: #efeaf6;
+  padding: 10px;
+  text-decoration: rgb(239, 234, 246);
+  text-align: center;
+  margin-top: -6px;
+`;
+
+/*
+  > * {
+    margin-left: 40px !important;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: 400ms ease-in-out;
+
+    &:hover {
+      background-color: #253551;
+      color: #ffffff;
+    }
+  }
+
+  > p:first-of-type {
+    margin-left: 0;
+  }*/

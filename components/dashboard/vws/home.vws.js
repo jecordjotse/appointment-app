@@ -6,6 +6,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchSearchResultsStart({ filters: {} }));
+    // eslint-disable-next-line
   }, []);
   return (
     <>

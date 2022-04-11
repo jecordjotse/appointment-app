@@ -1,13 +1,7 @@
-import HowItWorksComponent from "../components/howItWorks/howItWorksComponent";
+import HowItWorksComponent from "../components/howItWorks";
 
 const HowItWorks = () => {
-  return (
-    <>
-      <h1>How It Works!</h1>
-      <hr />
-      <HowItWorksComponent />
-    </>
-  );
+  return <HowItWorksComponent />;
 };
 
 export default HowItWorks;

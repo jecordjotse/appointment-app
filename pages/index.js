@@ -3,6 +3,7 @@ import BookAppointment1Component from "../components/bookAppointment/bookAppoint
 import HomePageBanner from "../components/homePage/homePageBanner/homePageBanner";
 import HomeHowItWorksComponent from "../components/homePage/homeHowItWorks/homeHowItWorks";
 import { Grid } from "../styles/appGlobal";
+import HomePageComponent from "../components/homePage";
 const Home = () => {
   return (
     <>
@@ -14,11 +15,7 @@ const Home = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePageBanner />
-      <Grid num="2">
-        <HomeHowItWorksComponent />
-        <BookAppointment1Component />
-      </Grid>
+      <HomePageComponent />
     </>
   );
 };
