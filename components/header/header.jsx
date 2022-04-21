@@ -42,6 +42,7 @@ const Header = () => {
               </div>
           <Menu
             id="basic-menu"
+            sx={{width: 300,height: 300}}
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
@@ -49,6 +50,7 @@ const Header = () => {
               'aria-labelledby': 'basic-button',
                onMouseLeave: handleClose,
             }}
+            className="MenuItem"
           >
             <MenuItem onClick={handleClose}>
         <Link href="/book-an-appointment/1" passHref>

@@ -1,9 +1,6 @@
 import Head from "next/head";
-import BookAppointment1Component from "../components/bookAppointment/bookAppointment1";
-import HomePageBanner from "../components/homePage/homePageBanner/homePageBanner";
-import HomeHowItWorksComponent from "../components/homePage/homeHowItWorks/homeHowItWorks";
-import { Grid } from "../styles/appGlobal";
 import HomePageComponent from "../components/homePage";
+import Footer from "../components/footer";
 const Home = () => {
   return (
     <>
@@ -16,6 +13,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomePageComponent />
+      <Footer />
     </>
   );
 };

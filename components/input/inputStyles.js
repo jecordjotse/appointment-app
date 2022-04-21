@@ -1,147 +1,272 @@
-import styled, { css } from 'styled-components';
-import { palette, typeScale } from '../../utils';
-import { Flex, Small } from '../../globals/appGlobal';
+import { Select } from "@mui/material";
+import styled, { css } from "styled-components";
+// import { palette, typeScale } from "../../utils";
+import { Flex, Small } from "../../styles/appGlobal";
 
-export const InputWrapper = styled.div`
-	position: relative;
-	background: white;
-	border-radius: 10px;
+export const InputWrap = styled.div`
+  position: relative;
+  border-radius: 5px;
 
-	label {
-		transition: 400ms ease-in-out;
-		color: #a0a0a0;
-		font-size: ${typeScale.paragraph};
-		text-transform: capitalize;
-		position: absolute;
-		top: calc(50% - 0.5rem);
-		left: 20px;
-		cursor: pointer;
-	}
+  label {
+    width: auto;
+    height: 31px;
+    font-family: Dosis;
+    font-size: 24px;
+    color: #231736;
+    text-decoration: rgb(35, 23, 54);
+    transition: 400ms ease-in-out;
+  }
 
-	svg {
-		font-size: 1.4rem;
-		color: ${palette.grey};
-		position: absolute;
-		top: calc(50% - 0.7rem);
-		right: 20px;
-	}
+  svg {
+    font-size: 1.4rem;
+    color: #253551;
+    position: absolute;
+    top: calc(50% - 0.7rem);
+    right: 20px;
+  }
 
-	.select-arrow {
-		cursor: pointer;
-		z-index: 1;
-	}
+  .select-arrow {
+    cursor: pointer;
+    z-index: 1;
+  }
 `;
 
 const FormFieldStyle = css`
-	width: 100%;
-	border: 1px solid ${palette.lightGrey};
-	height: 70px;
-	border-radius: 10px;
-	transition: 400ms ease-in-out;
-	transform-origin: top left;
-	position: relative;
-	outline: none;
-	font-size: ${typeScale.paragraph};
-	padding: 6px 20px 6px 20px;
-	cursor: pointer;
+  width: ${(props) =>
+    typeof props.location !== "undefined"
+      ? () => {
+          switch (props.location) {
+            case "footer":
+              return "calc(90% - 40px)";
+          }
+        }
+      : "100%"};
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${(props) =>
+    props.borderColor
+      ? props.borderColor
+      : (props) =>
+          typeof props.location !== "undefined"
+            ? () => {
+                switch (props.location) {
+                  case "footer":
+                    return "#8c8c8c";
+                }
+              }
+            : "#253551"};
+  border-radius: 5px;
+  transition: 400ms ease-in-out;
+  transform-origin: top left;
+  position: relative;
+  outline: none;
+  font-size: 14px;
+  padding: 6px 15px 6px 15px;
+  cursor: pointer;
 
-	~ label {
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-	}
+  ~ label {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-	&:active,
-	&:focus {
-		border: 1px solid black;
+  &:active,
+  &:focus {
+    border: 1px solid black;
 
-		~ label {
-			transform: translateY(-20px);
-			font-weight: 600;
-			font-size: ${typeScale.small};
-			color: black;
-		}
-	}
+    ~ label {
+      transform: translateY(-20px);
+      font-weight: lighter;
+      font-size: 24px;
+      color: #231736;
+    }
+  }
+
+  background-color: ${(props) =>
+    typeof props.location !== "undefined"
+      ? () => {
+          switch (props.location) {
+            case "footer":
+              return "#ffffff";
+          }
+        }
+      : "#efeaf6"};
 `;
 
 export const InputContainer = styled.input`
-	${FormFieldStyle};
+  ${FormFieldStyle};
+  height: ${(props) =>
+    typeof props.location !== "undefined"
+      ? () => {
+          switch (props.location) {
+            case "footer":
+              return "20px";
+          }
+        }
+      : "70px"};
 `;
 
 export const SelectContainer = styled.select`
-	${FormFieldStyle};
-	background: transparent;
-	-moz-appearance: none; /* Firefox */
-	-webkit-appearance: none; /* Safari and Chrome */
-	appearance: none;
-	position: relative;
-	z-index: 2;
+  ${FormFieldStyle};
+  height: ${(props) =>
+    typeof props.location !== "undefined"
+      ? () => {
+          switch (props.location) {
+            case "footer":
+              return "20px";
+          }
+        }
+      : "85px"};
+  background: transparent;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  position: relative;
+  z-index: 2;
 `;
 
-export const TextAreaWrapper = styled(Flex)`
-	align-items: flex-start;
-	margin: 20px 0 0;
+export const TextAreaWrap = styled(Flex)`
+  align-items: flex-start;
+  margin: 10px 0 0 0;
 
-	textarea {
-		width: 100%;
-		border: 1px solid ${palette.lightGrey};
-		border-radius: 10px;
-		margin-top: 10px;
-		position: relative;
-		outline: none;
-		font-size: ${typeScale.paragraph};
-		padding: 10px;
-		line-height: 150%;
+  label {
+    width: auto;
+    height: 31px;
+    font-family: Dosis;
+    font-size: 24px;
+    color: #231736;
+    text-decoration: rgb(35, 23, 54);
+    transition: 400ms ease-in-out;
+  }
 
-		&:active,
-		&:focus {
-			border: 1px solid black;
-		}
-	}
+  textarea {
+    width: ${(props) =>
+      typeof props.location !== "undefined"
+        ? () => {
+            switch (props.location) {
+              case "footer":
+                return "calc(99% - 20px)";
+            }
+          }
+        : "100%"};
+    border-width: 1px;
+    border-style: solid;
+    border-color: ${(props) =>
+      props.borderColor
+        ? props.borderColor
+        : (props) =>
+            typeof props.location !== "undefined"
+              ? () => {
+                  switch (props.location) {
+                    case "footer":
+                      return "#8c8c8c";
+                  }
+                }
+              : "#253551"};
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+    outline: none;
+    font-size: 14px;
+    padding: 10px;
+    line-height: 150%;
+    background-color: ${(props) =>
+      typeof props.location !== "undefined"
+        ? () => {
+            switch (props.location) {
+              case "footer":
+                return "#ffffff";
+            }
+          }
+        : "#efeaf6"};
+
+    &:active,
+    &:focus {
+      border: 1px solid black;
+    }
+  }
 `;
 
-export const InputMainWrapper = styled.div`
-	margin-bottom: 10px;
-	width: ${props => (props.fixed ? props.fixed : '100%')};
+export const InputMainWrap = styled.div`
+  margin-top: 10px;
+  width: ${(props) => (props.fixed ? props.fixed : "100%")};
 `;
 
-export const ErrorText = styled(Small)`
-	color: red;
-	height: 0.8rem;
-
-	svg {
-		margin-right: 5px;
-	}
+export const ErrorText = styled.p`
+  color: red;
+  height: 10px;
+  margin: 5px 0;
+  svg {
+    margin-right: 5px;
+  }
 `;
 
-export const RadioWrapper = styled.div`
-	position: relative;
+export const RadioWrap = styled.div`
+  position: relative;
 `;
 
 export const RadioInput = styled.input`
-	width: 25px;
-	height: 25px;
-	position: relative;
-	z-index: 2;
-	opacity: 0;
-	cursor: pointer;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
 
-	&:checked ~ div {
-		background-color: ${palette.green};
-		border-color: ${palette.green};
-	}
+  &:checked ~ div {
+    background-color: #231736;
+    border-color: #231736;
+  }
 `;
 
 export const FalseRadio = styled.div`
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	border: 1px solid ${palette.darkGrey};
-	position: absolute;
-	background-color: white;
-	top: 0;
-	left: 0;
-	z-index: 1;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid #efeaf6;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 0;
+  z-index: 1;
+`;
+
+export const Arrow = styled.div`
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  position: absolute;
+  right: 10px;
+  top: calc(100% / 2.4);
+  transform: rotate(45deg);
+  transition: 0.3s;
+  ${(props) => {
+    if (props.clicked)
+      return css`
+        transform: rotate(-135deg);
+      `;
+  }};
+`;
+
+export const SelectContainer1 = styled(Select)`
+  ${FormFieldStyle};
+  padding: 6px 15px 6px 5px;
+  height: ${(props) =>
+    typeof props.location !== "undefined"
+      ? () => {
+          switch (props.location) {
+            case "footer":
+              return "20px";
+          }
+        }
+      : "85px"};
+  background: transparent;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  position: relative;
+  z-index: 2;
 `;

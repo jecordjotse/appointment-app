@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
+	Arrow,
 	ErrorText,
 	FalseRadio,
 	InputContainer,
-	InputMainWrapper,
-	InputWrapper,
+	InputMainWrap,
+	InputWrap,
 	RadioInput,
-	RadioWrapper,
+	RadioWrap,
 	SelectContainer,
-	TextAreaWrapper,
+	TextAreaWrap,
+	SelectContainer1
 } from './inputStyles';
 import { v4 } from 'uuid';
 import { config } from '@fortawesome/fontawesome-svg-core';
@@ -22,8 +24,8 @@ import {
 	faEyeSlash,
 	faExclamationCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import { useValidationFunctions } from '../../hooks/validationFunctions';
-import { useGlobalFunctions } from '../../hooks/globalFunctions';
+// import { useGlobalFunctions } from '../../hooks/globalFunctions';	
+import {InputLabel, MenuItem} from '@mui/material';
 
 const Input = ({
 	label,
@@ -39,13 +41,19 @@ const Input = ({
 	defaultValue,
 	val,
 	setVal,
-	validate,
+	// validate,
 	special,
 	checked,
 	disabled,
 	dynamicLabel,
 	placeholder,
+	style,
+	location,
 }) => {
+	const [arrowTurn, setArrowTurn] = useState(false);
+	useEffect(()=>{
+		console.log("",type)
+	},[])
 	const animateLabel = e => {
 		e.target.value === ''
 			? e.target.classList.remove('active-input')
@@ -87,61 +95,56 @@ const Input = ({
 		validate && changeFunc(e, val, setVal, special);
 	};
 
-	const { isNumberKey } = useGlobalFunctions();
+	// const { isNumberKey } = useGlobalFunctions();
 
 	if (type === 'select') {
 		return (
-			<InputMainWrapper fixed={fixed}>
-				<InputWrapper>
-					<SelectContainer
+			<InputMainWrap fixed={fixed} style={style.component === "wrap"? style.style:{display:"auto"}}>
+				<InputWrap>
+
+  					{!!label? (<InputLabel id={`select-label-${id}`}>{label}</InputLabel>):(<></>)}
+					<SelectContainer1
 						id={id}
 						name={name}
-						onChange={handleChange}
-						onBlur={blur}
+						// onChange={handleChange}
+						// onBlur={blur}
 						value={value}
 						disabled={disabled}
+						labelId={`select-label-${id}`}
 						placeholder={placeholder}
+						displayEmpty={!!label? "false":"true"}
+						inputProps={!label? { 'aria-label': 'Without label' }:{}}
 					>
-						<option value='select' className='grey-out'>
-							{dynamicLabel ? label : `Select ${label}`}
-						</option>
+						<MenuItem value="" className='grey-out' disabled>
+							<em>{dynamicLabel ? label : !!label? `${label.toUpperCase()}`:`${placeholder.toUpperCase()}`}</em>
+						</MenuItem>
 						{options.map(option => {
 							return (
-								<option key={v4()} value={option}>
-									{label === 'Region'
-										? `${option} Region`
-										: option}
-								</option>
+								<MenuItem key={v4()} value={Object.keys(option)[0]}>
+									{`${Object.values(option)[0]}`}
+								</MenuItem>
 							);
 						})}
-					</SelectContainer>
-					<FontAwesomeIcon
-						icon={faArrowAltCircleDown}
-						className='select-arrow'
-						style={{ cursor: 'pointer' }}
-					/>
-				</InputWrapper>
+					</SelectContainer1>
+				</InputWrap>
 				<ErrorText>
-					{validate &&
-						val[`${id}Error`] !== '' &&
-						val[`${id}Error`] && (
+					{false && (
 							<FontAwesomeIcon icon={faExclamationCircle} />
 						)}
-					{validate && val[`${id}Error`]}
 				</ErrorText>
-			</InputMainWrapper>
+			</InputMainWrap>
 		);
 	} else if (type === 'password') {
 		return (
-			<InputMainWrapper fixed={fixed}>
-				<InputWrapper>
+			<InputMainWrap fixed={fixed}>
+				<InputWrap>
 					<InputContainer
 						type={type}
 						id={id}
 						name={name}
-						onBlur={blur}
+						// onBlur={blur}
 						autoComplete='on'
-						onChange={handleChange}
+						// onChange={handleChange}
 						value={value}
 						disabled={disabled}
 						placeholder={placeholder}
@@ -160,48 +163,46 @@ const Input = ({
 							id={id + 'Eye'}
 						/>
 					)}
-				</InputWrapper>
+				</InputWrap>
 				<ErrorText>
-					{validate &&
-						val[`${id}Error`] !== '' &&
-						val[`${id}Error`] && (
+					{false && (
 							<FontAwesomeIcon icon={faExclamationCircle} />
 						)}
-					{validate && val[`${id}Error`]}
+					{/* {validate && val[`${id}Error`]} */}
 				</ErrorText>
-			</InputMainWrapper>
+			</InputMainWrap>
 		);
 	} else if (type === 'text-area') {
 		return (
-			<InputMainWrapper fixed={fixed}>
-				<TextAreaWrapper vertical left>
-					<label htmlFor={id}>{label}</label>
+			<InputMainWrap fixed={fixed}>
+				<TextAreaWrap vertical left 
+						location={location}>
+					{label && (<label htmlFor={id}>{label}</label>)}
 					<textarea
 						id={id}
 						name={name}
 						rows={rows}
 						cols={cols}
-						onChange={handleChange}
-						onBlur={blur}
+						// onChange={handleChange}
+						// onBlur={blur}
 						value={value}
 						disabled={disabled}
 						placeholder={placeholder}
+						location={location}
 					/>
-				</TextAreaWrapper>
-				<ErrorText>
-					{validate &&
-						val[`${id}Error`] !== '' &&
-						val[`${id}Error`] && (
+				</TextAreaWrap>
+				{location!=="footer" && <ErrorText>
+					{false && (
 							<FontAwesomeIcon icon={faExclamationCircle} />
 						)}
-					{validate && val[`${id}Error`]}
-				</ErrorText>
-			</InputMainWrapper>
+					{/* {validate && val[`${id}Error`]} */}
+				</ErrorText>}
+			</InputMainWrap>
 		);
 	} else if (type === 'data-list') {
 		return (
-			<InputMainWrapper fixed={fixed}>
-				<InputWrapper>
+			<InputMainWrap fixed={fixed}>
+				<InputWrap>
 					<InputContainer
 						type='text'
 						id={id}
@@ -215,6 +216,7 @@ const Input = ({
 						autoComplete='off'
 						disabled={disabled}
 						placeholder={placeholder}
+						location={"footer"}
 					/>
 					<datalist id={id + 'List'}>
 						{options.map(option => {
@@ -222,20 +224,20 @@ const Input = ({
 						})}
 					</datalist>
 					<label htmlFor={id}>{label}</label>
-				</InputWrapper>
+				</InputWrap>
 				<ErrorText>
-					{validate &&
+					{/* {validate &&
 						val[`${id}Error`] !== '' &&
 						val[`${id}Error`] && (
 							<FontAwesomeIcon icon={faExclamationCircle} />
 						)}
-					{validate && val[`${id}Error`]}
+					{validate && val[`${id}Error`]} */}
 				</ErrorText>
-			</InputMainWrapper>
+			</InputMainWrap>
 		);
 	} else if (type === 'radio') {
 		return (
-			<RadioWrapper>
+			<RadioWrap>
 				<RadioInput
 					type='radio'
 					name={name}
@@ -246,35 +248,37 @@ const Input = ({
 					placeholder={placeholder}
 				/>
 				<FalseRadio />
-			</RadioWrapper>
+			</RadioWrap>
 		);
 	}
 	return (
-		<InputMainWrapper fixed={fixed}>
-			<InputWrapper>
+		<InputMainWrap fixed={fixed} style={style.component === "wrap"? style.style:{display:"auto"}}>
+			<InputWrap style={location==="footer" && style.style?.justifyItems==="right"? {display:"grid",justifyItems:"right"}:{display:"auto"}}>
+				{location!=="footer" && <label htmlFor={id}>{label}</label>}
 				<InputContainer
 					type={type}
 					id={id}
 					fixed={fixed}
 					name={name}
-					onBlur={blur}
-					onChange={handleChange}
+					// onBlur={blur}
+					// onChange={handleChange}
 					value={value}
 					defaultValue={defaultValue}
 					min={type === 'number' ? 0 : undefined}
-					onKeyPress={type === 'number' ? isNumberKey : undefined}
+					// onKeyPress={type === 'number' ? isNumberKey : undefined}
 					disabled={disabled}
 					placeholder={placeholder}
+					location={location}
+					style={style.component === "input"? style.style:{display:"auto"}}
 				/>
-				<label htmlFor={id}>{label}</label>
-			</InputWrapper>
-			<ErrorText>
-				{validate && val[`${id}Error`] !== '' && val[`${id}Error`] && (
+			</InputWrap>
+			{location!=="footer" && <ErrorText>
+				{false && (
 					<FontAwesomeIcon icon={faExclamationCircle} />
 				)}
-				{validate && val[`${id}Error`]}
-			</ErrorText>
-		</InputMainWrapper>
+				{/* {validate && val[`${id}Error`]} */}
+			</ErrorText>}
+		</InputMainWrap>
 	);
 };
 

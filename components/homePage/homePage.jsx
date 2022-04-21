@@ -17,10 +17,25 @@ function HomePageComponent() {
                     <HomeHowItWorksComponent />
                 </Grid>
                 <Grid item xs={8} md={4}>
-                    <BookAppointment1Component />
+                    <BookAppointment1Component /> 
                 </Grid>
             </Grid>
         </Grid>
+        {/* <div>
+            <div style={{display:"flex", justifyContent:"center"}}>
+                <div style={{flex:"1 1 auto"}}>
+                    <HomePageBanner/>
+                </div>
+            </div>
+            <div style={{display:"flex", justifyContent:"center"}}>
+                <div style={{flex:"1 1 auto"}}>
+                    <HomeHowItWorksComponent />
+                </div>
+                <div style={{flex:"1 1 auto"}}>
+                    <BookAppointment1Component />
+                </div>
+            </div>
+        </div> */}
     </HomePageWrap>
   )
 }

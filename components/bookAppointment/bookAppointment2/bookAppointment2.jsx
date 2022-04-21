@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import useSWR from 'swr';
 import {useRouter} from "next/router"
-import RedirectComponent from '../utils/redirectComponent';
+import { BookAppointment2Wrap, FormItemWrap, LabelWrap, SendButton, TitleWrap  } from './bookAppointment2Styles';
+import Input from '../../input';
 const fetcher = id => fetch(`http://localhost:3000/appointments/${id}`).then(res => res.json());
 
 const BookAppointment2Component = () => {
@@ -85,35 +86,39 @@ const BookAppointment2Component = () => {
 //         return ( <RedirectComponent url='http://localhost:3001/appointments'/> )
 // else
     return (
-        <div style={{background: "#ffffff"}} >
-            <h2>Book Appointment</h2>
+        <BookAppointment2Wrap style={{background: "#ffffff"}} >
+            <TitleWrap>Book Appointment</TitleWrap>
             <form onSubmit={handleBook}>
-            <div>
-            <label htmlFor="name">Description</label>
-            <textarea
+            <FormItemWrap>
+            <LabelWrap htmlFor="name">Description</LabelWrap>
+            <Input
                 name="short_desc"
                 id="short_desc"
                 cols="30"
                 rows="10"
+                type="textarea"
                 placeholder="What is it about"
-            ></textarea>
+                style={{ component: "input", style: {} }}
+            ></Input>
+            </FormItemWrap>
+            <FormItemWrap>
+            <LabelWrap htmlFor="name">When</LabelWrap>
+            <Input type="date" name="start_date" id="start_date"  style={{ component: "input", style: {} }}/>
+            </FormItemWrap>
+            <FormItemWrap>
+            <LabelWrap htmlFor="name">How long</LabelWrap>
+            <div style={{display:"flex"}}>
+                <Input type="number" name="duration" id="duration"  style={{ component: "wrap", style: {width:"60% !important", marginRight:"40px"}}}/>
+                <LabelWrap htmlFor="duration" style={{paddingTop:" 30px", fontSize: "30px"}}>Hours</LabelWrap>
             </div>
-            <div>
-            <label htmlFor="name">When</label>
-            <input type="date" name="start_date" id="start_date" />
-            </div>
-            <div>
-            <label htmlFor="name">How long</label>
-            <input type="number" name="duration" id="duration" />
-            <label htmlFor="duration">Hours</label>
-            </div>
-            <div>
+            </FormItemWrap>
+            <FormItemWrap>
                 <div>
-                    <button type="submit">Book</button>
+                    <SendButton variant="contained"  type="submit">Book</SendButton>
                 </div>
-            </div>
+            </FormItemWrap>
             </form>
-        </div>
+        </BookAppointment2Wrap>
     )
 }
 

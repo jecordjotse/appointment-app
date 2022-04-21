@@ -2,9 +2,9 @@ import React from 'react'
 import {HomeBannerWrap, TitleText} from './homePageBannerStyles'
 import Link  from "next/link";
 import { Container } from '../../../styles/appGlobal'
-import HomeBannerSvg from '../../svg/homeBanner/homeBannerSvg'
+import HomeBannerSvg from '../../svg/homeBannerSvg'
 import { Button, Grid } from '@mui/material'
-import ButtonIconSvg from '../../svg/homeBanner/buttonIcon';
+import ButtonIconSvg from '../../svg/buttonIcon';
 
 const HomePageBanner = () => {
   return (
@@ -21,7 +21,7 @@ const HomePageBanner = () => {
                    <Button className="BookButton">BOOK{"   "} <ButtonIconSvg /></Button>
                 </Link>
                 
-                <h3 style={{"margin-top":"85px", "font-weight":"lighter", "font-size":"24px"}}>ALREADY BOOKED!</h3>
+                <h3 style={{"margin-top":"85px", "fontWeight":"lighter", "fontSize":"24px"}}>ALREADY BOOKED!</h3>
                 <p>
                   That's great, let's <Link href="/appointments">Check You Appointment Status</Link>to view further details
                 </p>

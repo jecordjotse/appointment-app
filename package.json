@@ -14,11 +14,15 @@
     "@fontsource/abel": "^4.5.4",
     "@fontsource/dosis": "^4.5.7",
     "@fontsource/roboto": "^4.5.3",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@material-ui/core": "^4.12.3",
     "@mui/icons-material": "^5.4.4",
     "@mui/material": "^5.6.0",
     "@mui/styled-engine-sc": "^5.4.2",
     "next": "12.1.0",
+    "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "^7.2.6",
@@ -27,10 +31,14 @@
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.3",
     "styled-components": "^5.3.3",
-    "swr": "^1.2.2"
+    "swr": "^1.2.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "eslint": "8.10.0",
-    "eslint-config-next": "12.1.0"
+    "eslint": "^8.10.0",
+    "eslint-config-next": "12.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.29.4",
+    "prettier": "^2.6.2"
   }
 }
