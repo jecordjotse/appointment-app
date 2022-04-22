@@ -49,11 +49,9 @@ const Input = ({
 	placeholder,
 	style,
 	location,
+	onKeyUpCapture,
 }) => {
 	const [arrowTurn, setArrowTurn] = useState(false);
-	useEffect(()=>{
-		console.log("",type)
-	},[])
 	const animateLabel = e => {
 		e.target.value === ''
 			? e.target.classList.remove('active-input')
@@ -265,6 +263,7 @@ const Input = ({
 					value={value}
 					defaultValue={defaultValue}
 					min={type === 'number' ? 0 : undefined}
+					onKeyUpCapture={onKeyUpCapture}
 					// onKeyPress={type === 'number' ? isNumberKey : undefined}
 					disabled={disabled}
 					placeholder={placeholder}

@@ -64,6 +64,7 @@ export const Brand = styled.div`
   font-size: 21px;
   padding: 15px;
   color: #6665dd;
+  cursor: pointer;
   text-decoration: rgb(102, 101, 221);
 `;
 

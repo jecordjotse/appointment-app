@@ -1,9 +1,10 @@
 import React from 'react'
-import Link from "next/link";
+import { useRouter } from 'next/router'
 import { FindCardWrap, TitleWrap } from './findCardStyles'
 import Input from '../../input';
 
 const FindCard = ({appointments, handleChange}) => {
+    const router = useRouter();
   return (
       <FindCardWrap>
   <TitleWrap>Find Appointment</TitleWrap>
@@ -11,25 +12,25 @@ const FindCard = ({appointments, handleChange}) => {
       Please enter you 10 digit reference shown on the thank you page. It
       was also sent to you email{" "}
     </p>
-    <label htmlFor="reference_code"></label>
-    <Input
-      type="text"
-      name="reference_code"
-      id="reference_code"
-      placeholder="e.g. 65fe030484"
-      onKeyUpCapture={handleChange}
-        style={{component:"wrap",style:{}}}
-    />
+    <div style={{marginTop:"25px"}}>
+        <label htmlFor="reference_code">Reference Code</label>
+        <Input
+        type="text"
+        name="reference_code"
+        id="reference_code"
+        placeholder="e.g. 65fe030484"
+        onKeyUpCapture={handleChange}
+            style={{component:"input",style:{height:"34px", width:"400px", boxShadow:"inset 1px 1px 4px 2px rgba(0,0,0,0.2)", textDecoration:"rgb(37, 53, 81)"}}}
+        />
+    </div>
   <div>
     <ul>
       {appointments?.map((appointment) => (
         <li key={`${appointment.ref_code}`}>
-          <Link href={`/appointments/${appointment._id}`} passHref>
-            <div>
-              <div>{appointment.ref_code}</div>
-              <div>{appointment.short_desc}</div>
+            <div style={{display:"flex"}} onClick={() => {router.push(`/appointments/?appointment=${appointment._id}`, undefined, { shallow: true })}} >
+              <div style={{flex:"1 1 auto", fontSize:"16px"}}>{appointment.ref_code}</div>
+              <div style={{flex:"1 1 auto", fontSize:"16px"}}>{appointment.short_desc}</div>
             </div>
-          </Link>
         </li>
       ))}
     </ul>
