@@ -5,13 +5,15 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended", 
+		"next"
     ],
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
+			"legacyDecorators": true
         },
-        "ecmaVersion": "latest",
+        "ecmaVersion": "12",
         "sourceType": "module"
     },
     "plugins": [
@@ -33,6 +35,7 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+		"react/react-in-jsx-scope": "off"
     }
 }

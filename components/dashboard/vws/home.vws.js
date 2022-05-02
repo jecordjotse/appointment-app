@@ -3,16 +3,16 @@ import { useDispatch } from "react-redux";
 import { fetchSearchResultsStart } from "../../../lib/redux/search/search.actions";
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchSearchResultsStart({ filters: {} }));
-    // eslint-disable-next-line
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchSearchResultsStart({ filters: {} }));
+		// eslint-disable-next-line
   }, []);
-  return (
-    <>
-      <h2>DASHBOARD</h2> <div>30% of Approvals</div>
-    </>
-  );
+	return (
+		<>
+			<h2>DASHBOARD</h2> <div>30% of Approvals</div>
+		</>
+	);
 };
 
 export default HomePage;

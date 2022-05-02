@@ -1,1 +1,1 @@
-export { default } from './bookAppointment1'
+export { default } from "./bookAppointment1";

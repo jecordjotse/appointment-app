@@ -1,29 +1,29 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
-import WelcomeSVG from '../svg/welcomeSVG'
-
+import PropTypes from "prop-types";
+import WelcomeSVG from "../svg/welcomeSVG";
 
 const ThankYouPage = (props) => {
-  return (
-    <ThankyouWrap {...props} >
-      <div >
-        <h1>Thank You!</h1>
-        <p>
+	return (
+		<ThankyouWrap {...props}>
+			<div>
+				<h1>Thank You!</h1>
+				<p>
           Thank you signing up. We respect your donec gravida dui ac accumsan
           tempor. Phasellus vulputate cursus tempus.{" "}
-        </p>
-        <p>
+				</p>
+				<p>
           Your Reference code: <small>{props.ref_code}</small>
-        </p>
-        <p>
+				</p>
+				<p>
           Class aptent taciti sociosqu ad litora torquent per conubia nostra,
           per inceptos himenaeos. Curabitur nec porttitor ante
-        </p>
-      </div>
-      <WelcomeSVG style={{ height: "100%" }} />
-    </ThankyouWrap>
-  )
-}
+				</p>
+			</div>
+			<WelcomeSVG style={{ height: "100%" }} />
+		</ThankyouWrap>
+	);
+};
 
 const ThankyouWrap = styled.div`
   width: auto;
@@ -54,15 +54,20 @@ const ThankyouWrap = styled.div`
     height: 40px;
     font-size: 16px;
     margin-bottom: 53px;
-    small{
-        font-weight: bold;
-        font-size: 19px;
-        color: #ff6584;
+    small {
+      font-weight: bold;
+      font-size: 19px;
+      color: #ff6584;
     }
   }
 
-  >div{
-      flex: 1 1 auto;
+  > div {
+    flex: 1 1 auto;
   }
 `;
-export default ThankYouPage
+
+ThankYouPage.propTypes = {
+	ref_code: PropTypes.string
+};
+
+export default ThankYouPage;
