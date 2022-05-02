@@ -1,1 +1,1 @@
-export { default } from './introComponent'
+export { default } from "./introComponent";

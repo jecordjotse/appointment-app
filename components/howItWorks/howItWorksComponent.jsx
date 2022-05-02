@@ -5,13 +5,13 @@ import { AboutWrap } from "./howItWOrksStyles";
 import IntroComponent from "./introComponent";
 
 const HowItWorksComponent = () => {
-  return (
-    <AboutWrap>
-      <IntroComponent />
-      <Content1Component />
-      <Content2Component />
-    </AboutWrap>
-  );
+	return (
+		<AboutWrap>
+			<IntroComponent />
+			<Content1Component />
+			<Content2Component />
+		</AboutWrap>
+	);
 };
 
 export default HowItWorksComponent;

@@ -10,33 +10,26 @@ import PreviewSession from "./vws/previewSession.vws";
 import Upcoming from "./vws/upcoming.vws";
 
 const DashboardComponent = () => {
-  const router = useRouter();
-  const vws = PageViewController(router.query.path)
-   //Page View Controller 
-  switch (vws) {
-    case "approve":
-      return <ApproveAppointment />;
-      break;
-    case "edit":
-      return <EditAppointment />;
-      break;
-    case "have":
-      return <HaveAppointment />;
-      break;
-    case "list":
-      return <ListAppointments />;
-      break;
-    case "preview":
-      return <PreviewSession/>;
-      break;
-    case "upcoming":
-      return <Upcoming />;
-      break;
-    case "home":
-    default:
-      return <HomePage />;
-      break;
-  }
+	const router = useRouter();
+	const vws = PageViewController(router.query.path);
+	//Page View Controller
+	switch (vws) {
+	case "approve":
+		return <ApproveAppointment />;
+	case "edit":
+		return <EditAppointment />;
+	case "have":
+		return <HaveAppointment />;
+	case "list":
+		return <ListAppointments />;
+	case "preview":
+		return <PreviewSession />;
+	case "upcoming":
+		return <Upcoming />;
+	case "home":
+	default:
+		return <HomePage />;
+	}
 };
 
 export default DashboardComponent;
