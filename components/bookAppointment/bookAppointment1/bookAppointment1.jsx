@@ -3,6 +3,7 @@ import {useRouter} from "next/router"
 import { BookAppointment1Wrap, FormItemWrap, LabelWrap, SendButton, TitleWrap } from './bookAppointment1Styles';
 import Input from '../../input';
 
+const _url = "http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
 const BookAppointment1Component = () => {
 
     const router = useRouter();
@@ -16,7 +17,7 @@ const BookAppointment1Component = () => {
         event.preventDefault()
     
         const res = await fetch(
-          'http://localhost:3000/appointments',
+          `${_url}/appointments`,
           {
             body: JSON.stringify({
                 name: event.target.name.value,

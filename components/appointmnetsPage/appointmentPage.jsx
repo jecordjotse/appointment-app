@@ -4,13 +4,14 @@ import useSWR from "swr";
 import { AppointmentsPageWrap } from './appointmentPageStyles'
 import FindCard from "./findCard";
 import StatusCard from "./statusCard";
+const _url = "http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
 const allFetcher = (ref_code) =>
-  fetch(`http://localhost:3000/appointments?ref_code=${ref_code}`).then((res) =>
+  fetch(`${_url}/appointments?ref_code=${ref_code}`).then((res) =>
     res.json()
   );
 
 const appointmentFetcher = (id) =>
-fetch(`http://localhost:3000/appointments/${id}`).then((res) => res.json());
+fetch(`${_url}/appointments/${id}`).then((res) => res.json());
 
 
 const AppointmentPage = () => {

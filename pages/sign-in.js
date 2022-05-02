@@ -1,4 +1,6 @@
 import { useRouter } from "next/router";
+const _url =
+  "http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
 
 const SignIn = () => {
   const router = useRouter();
@@ -7,7 +9,7 @@ const SignIn = () => {
 
     event.preventDefault();
 
-    const res = await fetch(`http://localhost:3000/users/sign-in`, {
+    const res = await fetch(`${_url}/users/sign-in`, {
       body: JSON.stringify({
         username: event.target.username.value,
         password: event.target.password.value,

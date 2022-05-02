@@ -14,7 +14,7 @@ const Footer = () => {
                 <Input type="text-area" row="10"  placeholder="We'd love to hear from you" location={"footer"} />
             </div>
             <div>
-                <button type="submit" style={{ width: "100%", height: "calc(100% - 10px)", marginLeft: "10px" }}>Send</button>
+                <button type="submit" style={{ width: "100%", height: "calc(100% - 10px)", marginLeft: "10px", marginTop:"10px" }}>Send</button>
             </div>
         </div>
         <div style={{'justifyContent': 'center','display': 'flex'}}>©2022 DROMEWORKS</div>

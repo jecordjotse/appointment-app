@@ -6,10 +6,6 @@ import BookAppointment2Component from './bookAppointment2';
 import { BookAppointmentPageWrap } from './bookAppointmentPagesStyles'
 
 const BookAppointmentPage = ({page}) => {
-
-  useEffect(()=>{
-    console.log(typeof page)
-  },[page])
     
  switch (page) {
         case "2":

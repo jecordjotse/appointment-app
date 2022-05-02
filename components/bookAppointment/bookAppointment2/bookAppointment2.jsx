@@ -3,13 +3,14 @@ import useSWR from 'swr';
 import {useRouter} from "next/router"
 import { BookAppointment2Wrap, FormItemWrap, LabelWrap, SendButton, TitleWrap  } from './bookAppointment2Styles';
 import Input from '../../input';
-const fetcher = id => fetch(`http://localhost:3000/appointments/${id}`).then(res => res.json());
+const _url = "http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
+const fetcher = id => fetch(`${_url}/appointments/${id}`).then(res => res.json());
 
 const BookAppointment2Component = () => {
 
     const router = useRouter();
 	const route = router.pathname;
-    const { id } = router.query;
+    const { params } = router.query;
     const [appointment, setAppointment] = useState({
         name: "",
         number:"",
@@ -20,7 +21,7 @@ const BookAppointment2Component = () => {
     const handleBook = async event => {
         await bookAppointment_1(event)
     }
-	const { data: appointmentDetails, error } = useSWR(id, fetcher, {
+	const { data: appointmentDetails, error } = useSWR(params[1], fetcher, {
 		refreshInterval: 3600000,
 	});
 
@@ -28,7 +29,7 @@ const BookAppointment2Component = () => {
         event.preventDefault()
         console.log(event.target.short_desc.value)
         const res = await fetch(
-          `http://localhost:3000/appointments/${appointment._id}`,
+          `${_url}/appointments/${appointment._id}`,
           {
             body: JSON.stringify({
                 start: new Date(event.target.start_date.value).getTime(),

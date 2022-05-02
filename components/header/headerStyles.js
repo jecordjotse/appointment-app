@@ -27,10 +27,13 @@ export const HeaderIcon = styled.img`
 `;
 
 const HeaderItem = css`
-  width: 100px;
-  height: 20px;
+  width: auto;
+  min-width: 100px;
+  height: 30px;
+  padding-button: 15px;
   font-family: Dosis;
   font-size: 21px;
+  text-align: center;
   color: #253551;
   text-decoration: rgb(37, 53, 81);
   flex: 0 1 auto;

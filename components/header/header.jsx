@@ -1,18 +1,44 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Link  from "next/link";
 import { Brand, DashboardButton, HeaderIcon, HeaderLink, HeaderWrap, Nav, SignInButton } from './headerStyles';
-import Button from '@mui/material/Button'
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { ClickAwayListener, Popper, Grow, Paper, Button, Menu, MenuItem, MenuList, Stack } from '@mui/material';
 const Header = () => {
+  const [open_, setOpen_] = useState(false);
+  const anchorRef = useRef(null);
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
+
+  const handleToggle = () => {
+    setOpen_((prevOpen) => !prevOpen);
   };
+
+  const handleMenuClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen_(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen_(false);
+    } else if (event.key === 'Escape') {
+      setOpen_(false);
+    }
+  }
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = useRef(open_);
+  useEffect(() => {
+    if (prevOpen.current === true && open_ === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open_;
+  }, [open_]);
 
   return (
     <>
@@ -28,41 +54,56 @@ const Header = () => {
         <Link href="/how-it-works" passHref>
           <HeaderLink>About</HeaderLink>
         </Link>{" "}
-        <Link href="javascript:void(0);" passHref> 
-          <HeaderLink>
-            <div
-              id="basic-button"
-              aria-controls={open ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              onClick={handleClick}
-              onMouseOver={handleClick}
-              >
-                Menu
-              </div>
-          <Menu
-            id="basic-menu"
-            sx={{width: 300,height: 300}}
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              'aria-labelledby': 'basic-button',
-               onMouseLeave: handleClose,
-            }}
-            className="MenuItem"
-          >
-            <MenuItem onClick={handleClose}>
-        <Link href="/book-an-appointment/1" passHref>
-          <HeaderLink>Book</HeaderLink>
-        </Link></MenuItem>
-            <MenuItem onClick={handleClose}>
-        <Link href="/appointments" passHref>
-          <HeaderLink>Appointments</HeaderLink>
-        </Link></MenuItem>
-          </Menu>
-          </HeaderLink>
-        </Link>{" "}{" "}
+          <Button 
+            ref={anchorRef}
+            id="composition-button"
+            aria-controls={open_ ? 'composition-menu' : undefined}
+            aria-expanded={open_ ? 'true' : undefined}
+            aria-haspopup="true"
+            onClick={handleToggle}
+            style={{display:"block", textTransform: 'none', fontFamily: "Dosis", fontSize: "21px", color: "#253551", padding:"0px 0px 1px 0px", height:"30px", minWidth:"100px"}}>
+              Menu
+            </Button>
+          <Popper
+          open={open_}
+          anchorEl={anchorRef.current}
+          role={undefined}
+          placement="bottom-start"
+          transition
+          disablePortal
+        >
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{
+                transformOrigin:
+                  placement === 'bottom-start' ? 'left top' : 'left bottom',
+              }}
+            >
+              <Paper>
+                <ClickAwayListener onClickAway={handleMenuClose}>
+                  <MenuList
+                    autoFocusItem={open_}
+                    id="composition-menu"
+                    aria-labelledby="composition-button"
+                    onKeyDown={handleListKeyDown}
+                  >
+                  <MenuItem onClick={handleMenuClose}>
+                    <Link href="/book-an-appointment/1" passHref>
+                      <HeaderLink>Book</HeaderLink>
+                    </Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleMenuClose}>
+                    <Link href="/appointments" passHref>
+                      <HeaderLink>Appointments</HeaderLink>
+                    </Link>
+                  </MenuItem>
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
         <Link href="/sign-in" passHref>
           <DashboardButton variant="contained" content="initial-scale=1, width=device-width">Dashboard</DashboardButton>
         </Link>
