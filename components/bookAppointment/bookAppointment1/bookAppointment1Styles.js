@@ -3,37 +3,47 @@ import { styled as st } from "@mui/system";
 import { Button } from "@mui/material";
 
 export const BookAppointment1Wrap = styled.div`
-    width: 452px;
-    fill: #ffffff;
-    padding: 0 30px 10px 24px;
-    flex: 1 1 auto;
+	width: 100%;
+	fill: #ffffff;
+	padding: 0 30px 0 24px;
+	flex: 1 1 auto;
+	height: 100%;
+	display: inline-grid;
+	@media all and (min-width: 452px) {
+		max-width: 452px;
+	}
+
+	@media all and (max-width: 452px) {
+		max-width: 99vw;
+	}
 `;
 
 export const TitleWrap = styled.h2`
-    width: 398px;
-    height: 33px;
-    font-family: Abel;
-    font-size: 48px;
-    font-weight: lighter;
-    color: #253551;
-    text-decoration: rgb(37, 53, 81);
-    padding: 0 5px 0 5px;
+	width: 398px;
+	font-family: Abel;
+	font-size: 48px;
+	font-weight: lighter;
+	color: #253551;
+	text-decoration: rgb(37, 53, 81);
+	padding: 0 5px 0 5px;
+	margin: 0;
 `;
 
 export const FormItemWrap = styled.div`
-    width: 398px;
-    padding: 0px 8px;
-    font-family: Dosis;
-    text-decoration: rgb(37, 53, 81);
-    margin-top: 10px;
+	width: 398px;
+	padding: 0px 8px;
+	font-family: Dosis;
+	text-decoration: rgb(37, 53, 81);
+	margin-top: 5px;
+	margin-bottom: 5px;
 `;
 
 export const LabelWrap = styled.div`
-    height: 31px;
-    font-family: Dosis;
-    font-size: 24px;
-    color: #231736;
-    text-decoration: rgb(35, 23, 54);
+	height: 31px;
+	font-family: Dosis;
+	font-size: 24px;
+	color: #231736;
+	text-decoration: rgb(35, 23, 54);
 `;
 
 export const SendButton = st(Button)({
@@ -46,14 +56,14 @@ export const SendButton = st(Button)({
 		return props.borderColor
 			? props.borderColor
 			: (props) =>
-				typeof props.location !== "undefined"
-					? () => {
-						switch (props.location) {
-						case "footer":
-							return "#8c8c8c";
-						}
-					}
-					: "#253551";
+					typeof props.location !== "undefined"
+						? () => {
+								switch (props.location) {
+									case "footer":
+										return "#8c8c8c";
+								}
+						  }
+						: "#253551";
 	},
 	borderRadius: "5px",
 	transition: "400ms ease-in-out",

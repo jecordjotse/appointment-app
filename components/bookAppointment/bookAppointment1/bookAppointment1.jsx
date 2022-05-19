@@ -10,7 +10,7 @@ import {
 import Input from "../../input";
 
 const _url =
-  "http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
+	"http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
 const BookAppointment1Component = () => {
 	const router = useRouter();
 	const route = router.pathname;
@@ -51,7 +51,7 @@ const BookAppointment1Component = () => {
 	return (
 		<BookAppointment1Wrap style={{ background: "#ffffff" }}>
 			<TitleWrap>Book Appointment</TitleWrap>
-			<form onSubmit={verifyClient}>
+			<form onSubmit={verifyClient} style={{ display: "inline-grid" }}>
 				<FormItemWrap>
 					<LabelWrap htmlFor="name">Name</LabelWrap>
 					<Input
