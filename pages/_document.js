@@ -80,7 +80,7 @@ export default class MyDocument extends Document {
 					/>
 					<style>
 						{
-							"body{ font-family: 'Dosis';font-size:18px;background:#efeaf6}"
+							"body{ font-family: Dosis;font-size:18px;background:#efeaf6;padding:0;margin:0;top:0;position:absolute;width:100vw}"
 						}
 					</style>
 

@@ -1,9 +1,16 @@
 import styled from "styled-components";
 
 export const HomePageWrap = styled.div`
-  width: 90%;
-  padding-left: 100px;
-  padding-right: auto;
-  font-family: "Dosis";
-  margin-top: 90px;
+	font-family: "Dosis";
+	margin-top: 90px;
+`;
+
+export const HomeForm = styled.div`
+	height: 636px;
+	width: 500px;
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	padding: 5px 0 5px 0;
 `;
