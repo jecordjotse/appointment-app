@@ -1,27 +1,29 @@
-import { Grid } from '@mui/material'
-import React from 'react'
-import BookAppointment1Component from '../bookAppointment/bookAppointment1'
-import HomeHowItWorksComponent from './homeHowItWorks/homeHowItWorks'
-import HomePageBanner from './homePageBanner/homePageBanner'
-import { HomePageWrap } from './homePageStyles'
+import { Grid } from "@mui/material";
+import React from "react";
+import BookAppointment1Component from "../bookAppointment/bookAppointment1";
+import HomeHowItWorksComponent from "./homeHowItWorks/homeHowItWorks";
+import HomePageBanner from "./homePageBanner/homePageBanner";
+import { HomeForm, HomePageWrap } from "./homePageStyles";
 
 function HomePageComponent() {
-  return (
-    <HomePageWrap>
-        <Grid container spacing={3} columns>
-            <Grid item xs={8} md={8}>
-            <HomePageBanner/>
-            </Grid>
-            <Grid item container spacing={3}>
-                <Grid item xs={8} md={8}>
-                    <HomeHowItWorksComponent />
-                </Grid>
-                <Grid item xs={8} md={4}>
-                    <BookAppointment1Component /> 
-                </Grid>
-            </Grid>
-        </Grid>
-        {/* <div>
+	return (
+		<HomePageWrap>
+			<Grid container spacing={0} p={0} m={0}>
+				<Grid item p={0} m={0} md={12} xs={12}>
+					<HomePageBanner />
+				</Grid>
+				<Grid item spacing={0} p={0} m={0} md={12} xs={12}>
+					<Grid item xs={12} md>
+						<HomeHowItWorksComponent />
+					</Grid>
+					<Grid item xs={12} md={"auto"} p={0} m={0}>
+						<HomeForm>
+							<BookAppointment1Component />
+						</HomeForm>
+					</Grid>
+				</Grid>
+			</Grid>
+			{/* <div>
             <div style={{display:"flex", justifyContent:"center"}}>
                 <div style={{flex:"1 1 auto"}}>
                     <HomePageBanner/>
@@ -36,8 +38,8 @@ function HomePageComponent() {
                 </div>
             </div>
         </div> */}
-    </HomePageWrap>
-  )
+		</HomePageWrap>
+	);
 }
 
-export default HomePageComponent
+export default HomePageComponent;

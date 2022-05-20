@@ -5,14 +5,14 @@ import DashboardComponent from "../../components/dashboard/dashboardComponent";
 import Sidebar from "../../components/dashboard/utils/sidebar";
 
 const DashboardHomePage = () => {
-  return (
-    <>
-      <Provider store={store}>
-        <Sidebar />
-        <DashboardComponent />
-      </Provider>
-    </>
-  );
+	return (
+		<>
+			<Provider store={store}>
+				<Sidebar />
+				<DashboardComponent />
+			</Provider>
+		</>
+	);
 };
 
 export default DashboardHomePage;

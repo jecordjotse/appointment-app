@@ -1,1 +1,1 @@
-export { default } from "./findCard"
+export { default } from "./findCard";
