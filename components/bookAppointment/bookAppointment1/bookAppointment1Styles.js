@@ -4,24 +4,20 @@ import { Button } from "@mui/material";
 
 export const BookAppointment1Wrap = styled.div`
 	width: 100%;
+	left: 0;
+	right: 0;
 	fill: #ffffff;
 	padding: 0 30px 0 24px;
+	box-sizing: border-box;
 	flex: 1 1 auto;
 	height: 100%;
-	display: inline-grid;
-	@media all and (min-width: 452px) {
-		max-width: 452px;
-	}
-
-	@media all and (max-width: 452px) {
-		max-width: 99vw;
-	}
+	display: inline;
 `;
 
 export const TitleWrap = styled.h2`
-	width: 398px;
+	width: 100%;
 	font-family: Abel;
-	font-size: 48px;
+	font-size: 45px;
 	font-weight: lighter;
 	color: #253551;
 	text-decoration: rgb(37, 53, 81);
@@ -30,7 +26,8 @@ export const TitleWrap = styled.h2`
 `;
 
 export const FormItemWrap = styled.div`
-	width: 398px;
+	max-width: 398px;
+	width: 100%;
 	padding: 0px 8px;
 	font-family: Dosis;
 	text-decoration: rgb(37, 53, 81);

@@ -48,7 +48,6 @@ const Input = ({
 	location,
 	onKeyUpCapture,
 }) => {
-
 	// const animateLabel = (e) => {
 	// 	e.target.value === ""
 	// 		? e.target.classList.remove("active-input")
@@ -96,11 +95,16 @@ const Input = ({
 		return (
 			<InputMainWrap
 				fixed={fixed}
-				style={style.component === "wrap" ? style.style : { display: "auto" }}
-			>
+				style={
+					style.component === "wrap"
+						? style.style
+						: { display: "auto" }
+				}>
 				<InputWrap>
 					{label ? (
-						<InputLabel id={`select-label-${id}`}>{label}</InputLabel>
+						<InputLabel id={`select-label-${id}`}>
+							{label}
+						</InputLabel>
 					) : (
 						<></>
 					)}
@@ -114,20 +118,23 @@ const Input = ({
 						labelId={`select-label-${id}`}
 						placeholder={placeholder}
 						displayEmpty={label ? "false" : "true"}
-						inputProps={!label ? { "aria-label": "Without label" } : {}}
-					>
+						inputProps={
+							!label ? { "aria-label": "Without label" } : {}
+						}>
 						<MenuItem value="" className="grey-out" disabled>
 							<em>
 								{dynamicLabel
 									? label
 									: label
-										? `${label.toUpperCase()}`
-										: `${placeholder.toUpperCase()}`}
+									? `${label.toUpperCase()}`
+									: `${placeholder.toUpperCase()}`}
 							</em>
 						</MenuItem>
 						{options.map((option) => {
 							return (
-								<MenuItem key={v4()} value={Object.keys(option)[0]}>
+								<MenuItem
+									key={v4()}
+									value={Object.keys(option)[0]}>
 									{`${Object.values(option)[0]}`}
 								</MenuItem>
 							);
@@ -195,7 +202,9 @@ const Input = ({
 				</TextAreaWrap>
 				{location !== "footer" && (
 					<ErrorText>
-						{false && <FontAwesomeIcon icon={faExclamationCircle} />}
+						{false && (
+							<FontAwesomeIcon icon={faExclamationCircle} />
+						)}
 						{/* {validate && val[`${id}Error`]} */}
 					</ErrorText>
 				)}
@@ -256,15 +265,16 @@ const Input = ({
 	return (
 		<InputMainWrap
 			fixed={fixed}
-			style={style.component === "wrap" ? style.style : { display: "auto" }}
-		>
+			style={
+				style.component === "wrap" ? style.style : { display: "auto" }
+			}>
 			<InputWrap
 				style={
-					location === "footer" && style.style?.justifyItems === "right"
+					location === "footer" &&
+					style.style?.justifyItems === "right"
 						? { display: "grid", justifyItems: "right" }
 						: { display: "auto" }
-				}
-			>
+				}>
 				{location !== "footer" && <label htmlFor={id}>{label}</label>}
 				<InputContainer
 					type={type}
@@ -282,7 +292,9 @@ const Input = ({
 					placeholder={placeholder}
 					location={location}
 					style={
-						style.component === "input" ? style.style : { display: "auto" }
+						style.component === "input"
+							? style.style
+							: { display: "auto" }
 					}
 				/>
 			</InputWrap>
@@ -317,5 +329,4 @@ Input.propTypes = {
 	style: PropTypes.object,
 	location: PropTypes.string,
 	onKeyUpCapture: PropTypes.func,
-
 };

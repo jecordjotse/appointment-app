@@ -105,30 +105,34 @@ const PhoneHeader = () => {
 							Home
 						</NavItem>
 					</Link>
-					<Link href="/about/elorm-jerome" passHref>
+					<Link href="/how-it-works" passHref>
 						<NavItem
 							className={
-								router.pathname == "/about/elorm-jerome"
+								router.pathname == "/how-it-works"
 									? "active"
 									: ""
 							}>
-							About Me
+							About
 						</NavItem>
 					</Link>
-					<Link href="/#projects" passHref>
+					<Link href="/book-an-appointment" passHref>
 						<NavItem
 							className={
-								router.pathname == "/#projects" ? "active" : ""
+								router.pathname == "/appointment"
+									? "active"
+									: ""
 							}>
-							Projects
+							Book
 						</NavItem>
 					</Link>
-					<Link href="/contact" passHref>
+					<Link href="/appointments" passHref>
 						<NavItem
 							className={
-								router.pathname == "/contact" ? "active" : ""
+								router.pathname == "/appointments"
+									? "active"
+									: ""
 							}>
-							Contact
+							Appointments
 						</NavItem>
 					</Link>
 				</NavBar>

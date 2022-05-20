@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const HomeBannerWrap = styled.div`
-	height: 80vh;
-	width: auto;
+	height: 600px;
+	width: 100%;
 	position: relative;
 	background: #ffffff;
 	padding: 0 46px 0 46px;
@@ -21,7 +21,7 @@ export const HomeBannerWrap = styled.div`
 		z-index: 3;
 	}
 
-	@media all and (min-width: 900px) {
+	@media all and (max-width: 900px) {
 		height: 80vh;
 	}
 
