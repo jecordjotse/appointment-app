@@ -1,5 +1,7 @@
 import React from "react";
 import Footer from "../components/footer";
+import { HomeForm } from "../components/homePage/homePageStyles";
+import BookAppointment1Component from "../components/bookAppointment/bookAppointment1";
 import Input from "../components/input";
 import AppointmentIconSvg from "../components/svg/appointmentIcon";
 import BookIconSvg from "../components/svg/bookIcon";
@@ -9,7 +11,12 @@ import StatusIconSvg from "../components/svg/statusIcon";
 const InputsPlaygroundPage = () => {
 	return (
 		<>
-			<div style={{ display: "flex" }}>
+			<div style={{ top: "50px", position: "relative" }}>
+				<HomeForm>
+					<BookAppointment1Component />
+				</HomeForm>
+			</div>
+			{/* <div style={{ display: "flex" }}>
 				<div
 					style={{
 						"margin-top": "90px",
@@ -55,7 +62,7 @@ const InputsPlaygroundPage = () => {
 							/>
 						</div>
 					</div> */}
-				</div>
+			{/* </div>
 				<div
 					style={{
 						top: "10vw",
@@ -74,7 +81,7 @@ const InputsPlaygroundPage = () => {
 					}}>
 					<AppointmentIconSvg />
 				</div>
-			</div>
+			</div> */}{" "}
 		</>
 	);
 };

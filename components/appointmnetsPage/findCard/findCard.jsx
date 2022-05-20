@@ -10,8 +10,8 @@ const FindCard = ({ appointments, handleChange }) => {
 		<FindCardWrap>
 			<TitleWrap>Find Appointment</TitleWrap>
 			<p>
-        Please enter you 10 digit reference shown on the thank you page. It was
-        also sent to you email{" "}
+				Please enter you 10 digit reference shown on the thank you page.
+				It was also sent to you email{" "}
 			</p>
 			<div style={{ marginTop: "25px" }}>
 				<label htmlFor="reference_code">Reference Code</label>
@@ -25,7 +25,6 @@ const FindCard = ({ appointments, handleChange }) => {
 						component: "input",
 						style: {
 							height: "34px",
-							width: "400px",
 							boxShadow: "inset 1px 1px 4px 2px rgba(0,0,0,0.2)",
 							textDecoration: "rgb(37, 53, 81)",
 						},
@@ -44,12 +43,19 @@ const FindCard = ({ appointments, handleChange }) => {
 										undefined,
 										{ shallow: true }
 									);
-								}}
-							>
-								<div style={{ flex: "1 1 auto", fontSize: "16px" }}>
+								}}>
+								<div
+									style={{
+										flex: "1 1 auto",
+										fontSize: "16px",
+									}}>
 									{appointment.ref_code}
 								</div>
-								<div style={{ flex: "1 1 auto", fontSize: "16px" }}>
+								<div
+									style={{
+										flex: "1 1 auto",
+										fontSize: "16px",
+									}}>
 									{appointment.short_desc}
 								</div>
 							</div>

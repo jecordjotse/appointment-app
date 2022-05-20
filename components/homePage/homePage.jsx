@@ -9,10 +9,8 @@ function HomePageComponent() {
 	return (
 		<HomePageWrap>
 			<Grid container spacing={0} p={0} m={0}>
-				<Grid item p={0} m={0} md={12} xs={12}>
-					<HomePageBanner />
-				</Grid>
-				<Grid item spacing={0} p={0} m={0} md={12} xs={12}>
+				<HomePageBanner />
+				<Grid item container spacing={0} p={0} m={0} md={12} xs={12}>
 					<Grid item xs={12} md>
 						<HomeHowItWorksComponent />
 					</Grid>

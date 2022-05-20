@@ -1,17 +1,14 @@
 import styled from "styled-components";
 
 export const AppointmentsPageWrap = styled.div`
-  width: 90%;
-  padding-left: 100px;
-  padding-right: auto;
-  font-family: "Dosis";
-  margin-top: 90px;
-  display: flex;
-`;
-
-export const StatusCard = styled.div`
-  width: 100%;
-  height: 607px;
-  background: #ffffff;
-  flex: 1 1 auto;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: "Dosis";
+	margin: 90px 0 0 0;
+	@media all and (min-width: 626px) {
+		display: flex;
+	}
+	@media all and (max-width: 626px) {
+		display: grid;
+	}
 `;
