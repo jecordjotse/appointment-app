@@ -3,13 +3,15 @@ import { Container } from "../../../styles/appGlobal";
 
 export const HowItWorksWrap = styled(Container)`
 	background: #ffffff;
-	height: 636px;
-	padding: 0 10px 10px 46px;
+	height: fit-content;
+	min-height: 636px;
+	padding: 10px 10px 10px 46px;
 	width: auto;
-	min-width: fit-content;
 	display: grid;
 	justify-content: stretch;
-	margin: 0 30px 0 0;
+	@media all and (min-width: 900px) {
+		margin: 0 30px 0 0;
+	}
 `;
 
 export const IconItemRow = styled.div`
@@ -39,18 +41,18 @@ export const TextItemWrap = styled.p`
 `;
 
 export const TitleItemWrap = styled.h4`
-	width: 503px;
 	height: 31px;
 	font-family: Dosis;
 	font-size: 24px;
 	font-weight: lighter;
 	color: #231736;
 	text-decoration: rgb(35, 23, 54);
-	margin: 0 7px;
+	margin: 15px 7px;
 `;
 
 export const TitleWrap = styled.h2`
 	height: 63px;
+	width: fit-content;
 	font-weight: lighter;
 	font-family: Abel;
 	font-size: 48px;

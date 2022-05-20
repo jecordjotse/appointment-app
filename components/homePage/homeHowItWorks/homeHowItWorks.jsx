@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import AppointmentIconSvg from "../../svg/appointmentIcon";
 import BookIconSvg from "../../svg/bookIcon";
@@ -17,10 +17,14 @@ const HomeHowItWorksComponent = () => {
 	return (
 		<HowItWorksWrap>
 			<TitleWrap>How it Works!</TitleWrap>
-			<div>
+			<Box sx={{ flexGrow: 1 }}>
 				<TitleItemWrap>As A Consultant</TitleItemWrap>
-
-				<Grid container spacing={0} p={0} m={0}>
+				<Grid
+					container
+					justifyContent="space-evenly"
+					spacing={0}
+					p={0}
+					m={0}>
 					<Grid item container spacing={0} p={0} m={0} md={4} xs={6}>
 						<IconItemWrap>
 							<LoginIconSvg />
@@ -48,6 +52,8 @@ const HomeHowItWorksComponent = () => {
 						</IconItemWrap>
 					</Grid>
 				</Grid>
+			</Box>
+			<Box sx={{ flexGrow: 1, marginTop: "10px" }}>
 				<TitleItemWrap>As A Client</TitleItemWrap>
 				<Grid container spacing={0} p={0} m={0}>
 					<Grid item container spacing={0} p={0} m={0} md={6} xs={6}>
@@ -63,7 +69,7 @@ const HomeHowItWorksComponent = () => {
 						</IconItemWrap>
 					</Grid>
 				</Grid>
-			</div>
+			</Box>
 		</HowItWorksWrap>
 	);
 };

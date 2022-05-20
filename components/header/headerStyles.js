@@ -87,7 +87,7 @@ export const Nav = styled.nav`
 	width: auto;
 	display: inline-flex;
 	font-family: "Dosis";
-	padding: 15px;
+	padding: 15px 0 15px 15px;
 	position: relative;
 	right: 0;
 	flex: 1;

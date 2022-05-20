@@ -51,7 +51,7 @@ const BookAppointment1Component = () => {
 	return (
 		<BookAppointment1Wrap style={{ background: "#ffffff" }}>
 			<TitleWrap>Book Appointment</TitleWrap>
-			<form onSubmit={verifyClient} style={{ display: "inline-grid" }}>
+			<form onSubmit={verifyClient} style={{ display: "inline" }}>
 				<FormItemWrap>
 					<LabelWrap htmlFor="name">Name</LabelWrap>
 					<Input
@@ -100,7 +100,10 @@ const BookAppointment1Component = () => {
 					/>
 				</FormItemWrap>
 				<FormItemWrap>
-					<SendButton variant="contained" type="submit">
+					<SendButton
+						variant="contained"
+						type="submit"
+						sx={{ width: 1 }}>
 						{route !== "/" ? "Verify" : "Book"}
 					</SendButton>
 				</FormItemWrap>
