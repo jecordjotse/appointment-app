@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const AboutWrap = styled.div`
-  width: 90%;
-  padding-left: 100px;
-  padding-right: 100px;
-  font-family: "Dosis";
-  margin-top: 67px;
+	width: 100%;
+	font-family: "Dosis";
+	margin: 67px 0 0 0;
+	box-sizing: border-box;
 `;

@@ -10,7 +10,7 @@ import {
 } from "./bookAppointment2Styles";
 import Input from "../../input";
 const _url =
-  "http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
+	"http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
 const fetcher = (id) =>
 	fetch(`${_url}/appointments/${id}`).then((res) => res.json());
 
@@ -71,7 +71,9 @@ const BookAppointment2Component = () => {
 			const result_ = await res_.json();
 
 			console.log("The results: ", result_);
-			router.push(`/thank-you?item_id=${result._id}&ref_code=${result_.ref}`);
+			router.push(
+				`/thank-you?item_id=${result._id}&ref_code=${result_.ref}`
+			);
 		}
 	};
 
@@ -99,8 +101,7 @@ const BookAppointment2Component = () => {
 						rows="10"
 						type="textarea"
 						placeholder="What is it about"
-						style={{ component: "input", style: {} }}
-					></Input>
+						style={{ component: "input", style: {} }}></Input>
 				</FormItemWrap>
 				<FormItemWrap>
 					<LabelWrap htmlFor="name">When</LabelWrap>
@@ -120,21 +121,26 @@ const BookAppointment2Component = () => {
 							id="duration"
 							style={{
 								component: "wrap",
-								style: { width: "60% !important", marginRight: "40px" },
+								style: {
+									width: "60% !important",
+									marginRight: "40px",
+								},
 							}}
 						/>
 						<LabelWrap
 							htmlFor="duration"
-							style={{ paddingTop: " 30px", fontSize: "30px" }}
-						>
-              Hours
+							style={{ paddingTop: " 30px", fontSize: "30px" }}>
+							Hours
 						</LabelWrap>
 					</div>
 				</FormItemWrap>
 				<FormItemWrap>
 					<div>
-						<SendButton variant="contained" type="submit">
-              Book
+						<SendButton
+							variant="contained"
+							type="submit"
+							sx={{ width: 1 }}>
+							Book
 						</SendButton>
 					</div>
 				</FormItemWrap>
