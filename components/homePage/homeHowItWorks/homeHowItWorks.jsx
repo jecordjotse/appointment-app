@@ -25,6 +25,7 @@ const HomeHowItWorksComponent = () => {
 					spacing={0}
 					p={0}
 					m={0}>
+
 					<Grid item container spacing={0} p={0} m={0} md={4} xs={6}>
 						<IconItemWrap>
 							<LoginIconSvg />
@@ -54,6 +55,7 @@ const HomeHowItWorksComponent = () => {
 				</Grid>
 			</Box>
 			<Box sx={{ flexGrow: 1, marginTop: "10px" }}>
+
 				<TitleItemWrap>As A Client</TitleItemWrap>
 				<Grid container spacing={0} p={0} m={0}>
 					<Grid item container spacing={0} p={0} m={0} md={6} xs={6}>

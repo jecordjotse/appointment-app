@@ -9,8 +9,7 @@ import {
 	TitleWrap,
 } from "./bookAppointment2Styles";
 import Input from "../../input";
-const _url =
-	"http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
+const _url = "http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
 const fetcher = (id) =>
 	fetch(`${_url}/appointments/${id}`).then((res) => res.json());
 
@@ -71,9 +70,7 @@ const BookAppointment2Component = () => {
 			const result_ = await res_.json();
 
 			console.log("The results: ", result_);
-			router.push(
-				`/thank-you?item_id=${result._id}&ref_code=${result_.ref}`
-			);
+			router.push(`/thank-you?item_id=${result._id}&ref_code=${result_.ref}`);
 		}
 	};
 
