@@ -6,7 +6,13 @@ const Footer = () => {
 	return (
 		<FooterWrap>
 			<div style={{ display: "flex" }}>
-				<div style={{ display: "grid", maxWidth: "500px", minWidth: "200px" }}>
+				<div
+					style={{
+						display: "grid",
+						maxWidth: "500px",
+						minWidth: "200px",
+						marginRight: "10px",
+					}}>
 					<div style={{ display: "flex" }}>
 						<Input
 							style={{
@@ -22,7 +28,10 @@ const Footer = () => {
 						<Input
 							style={{
 								component: "input",
-								style: { display: "grid", justifyItems: "right" },
+								style: {
+									display: "grid",
+									justifyItems: "right",
+								},
 							}}
 							type="email"
 							name="name"
@@ -44,16 +53,14 @@ const Footer = () => {
 						style={{
 							width: "100%",
 							height: "calc(100% - 10px)",
-							marginLeft: "10px",
 							marginTop: "10px",
-						}}
-					>
-            Send
+						}}>
+						Send
 					</button>
 				</div>
 			</div>
 			<div style={{ justifyContent: "center", display: "flex" }}>
-        ©2022 DROMEWORKS
+				©2022 DROMEWORKS
 			</div>
 		</FooterWrap>
 	);
