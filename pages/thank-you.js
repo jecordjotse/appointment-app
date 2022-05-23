@@ -69,6 +69,7 @@ const ThankYou = () => {
 				(!!appointment.ref_code && appointment.ref_code === "")
 			)
 				assignRefCode(ref_code);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [appointment]);
 	return (
 		<>
