@@ -112,6 +112,7 @@ const BookIconSvg = (props) => {
 		}
 
 		console.log("Ready", animationControl);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [animate]);
 
 	return (

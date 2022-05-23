@@ -25,7 +25,7 @@ const style = {
 const _url =
 	"http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
 
-const Login = forwardRef((props, ref) => {
+const Login = (props, ref) => {
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
@@ -115,6 +115,6 @@ const Login = forwardRef((props, ref) => {
 			</Fade>
 		</Modal>
 	);
-});
+};
 
-export default Login;
+export default forwardRef(Login);
