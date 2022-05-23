@@ -12,7 +12,7 @@ import MenuIcon from "./menuIcon";
 import { useRouter } from "next/router";
 import { HeaderIcon, Brand } from "../headerStyles";
 
-const PhoneHeader = () => {
+const PhoneHeader = ({ dashboardClick }) => {
 	const router = useRouter();
 	const myRef = useRef();
 	const [showMenu, setShowMenu] = useState(false);
@@ -135,6 +135,13 @@ const PhoneHeader = () => {
 							Appointments
 						</NavItem>
 					</Link>
+					<NavItem
+						className={
+							router.pathname == "/appointments" ? "active" : ""
+						}
+						onClick={() => dashboardClick()}>
+						Dashboard
+					</NavItem>
 				</NavBar>
 			</DropDownWrap>
 		</>

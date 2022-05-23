@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Footer from "../components/footer";
 import ThankYouPage from "../components/thankYou/thankYouPage";
 const _url =
-    "http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
+	"http://appointmentapi-env.eba-p2gbkhf2.us-east-1.elasticbeanstalk.com";
 
 const fetcher = (id) =>
 	fetch(`${_url}/appointments/${id}`).then((res) => res.json());
@@ -53,34 +53,32 @@ const ThankYou = () => {
 	};
 
 	const { data: appointmentDetails, error } = useSWR(item_id, fetcher, {
-		refreshInterval: 3600000,
+		revalidateOnFocus: false,
+		onSuccess: (data, key, config) => {
+			setAppointment(data);
+			console.log(data); //this always prints "undefined"
+			this.data = data;
+			this.error = error;
+		},
 	});
 
 	useEffect(() => {
-		setAppointment(appointmentDetails);
-	}, [appointmentDetails]);
-
-	useEffect(() => {
-		if (appointment) {
+		if (!!appointment._id)
 			if (
 				!appointment.ref_code ||
-                (!!appointment.ref_code && appointment.ref_code === "")
-			) {
-				console.log("Add Ref");
+				(!!appointment.ref_code && appointment.ref_code === "")
+			)
 				assignRefCode(ref_code);
-			}
-		}
-		// eslint-disable-next-line
-    }, []);
-
-	useEffect(() => {
-		console.log(item_id);
-		console.log(ref_code);
-	}, [item_id, ref_code]);
+	}, [appointment]);
 	return (
 		<>
 			{error && <></>}
-			<ThankYouPage ref_code={ref_code} />
+			<ThankYouPage
+				id={appointment._id ? appointment._id : ref_code}
+				ref_code={
+					appointment.ref_code ? appointment.ref_code : ref_code
+				}
+			/>
 			<Footer />
 		</>
 	);
