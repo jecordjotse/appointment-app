@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import WelcomeSVG from "../svg/welcomeSVG";
+import Link from "next/link";
 
 const ThankYouPage = (props) => {
 	return (
@@ -13,7 +14,14 @@ const ThankYouPage = (props) => {
 					accumsan tempor. Phasellus vulputate cursus tempus.{" "}
 				</p>
 				<p>
-					Your Reference code: <small>{props.ref_code}</small>
+					Your Reference code:{" "}
+					<Link
+						href={`/appointments?appointment=${props.id}`}
+						passHref>
+						<a>
+							<small>{props.ref_code}</small>
+						</a>
+					</Link>
 				</p>
 				<p>
 					Class aptent taciti sociosqu ad litora torquent per conubia
@@ -66,6 +74,10 @@ const ThankyouWrap = styled.div`
 		width: 50%;
 		flex: 1 1 0;
 		z-index: 99;
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 	> svg {
