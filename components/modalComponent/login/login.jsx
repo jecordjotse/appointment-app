@@ -114,6 +114,7 @@ const Login = (props, ref) => {
 				</Box>
 			</Fade>
 		</Modal>
-	);
+	)
+};
 
 export default forwardRef(Login);
