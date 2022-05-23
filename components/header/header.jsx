@@ -13,15 +13,17 @@ import {
 	ClickAwayListener,
 	Popper,
 	Grow,
-	Paper,
 	Button,
+	Paper,
 	MenuItem,
 	MenuList,
 } from "@mui/material";
 import PhoneHeader from "./phoneHeader";
+import Login from "../modalComponent/login";
 const Header = () => {
 	const [open_, setOpen_] = useState(false);
 	const anchorRef = useRef(null);
+	const loginRef = useRef();
 
 	const handleToggle = () => {
 		setOpen_((prevOpen) => !prevOpen);
@@ -56,7 +58,7 @@ const Header = () => {
 	return (
 		<>
 			<HeaderBackground>
-				<PhoneHeader />
+				<PhoneHeader dashboardClick={loginRef.current?.handleOpen} />
 				<HeaderWrap>
 					<Link href="/" passHref>
 						<HeaderIcon src="/dromeworks.png" alt=""></HeaderIcon>
@@ -129,16 +131,16 @@ const Header = () => {
 								</Grow>
 							)}
 						</Popper>
-						<Link href="/sign-in" passHref>
-							<DashboardButton
-								variant="contained"
-								content="initial-scale=1, width=device-width">
-								Dashboard
-							</DashboardButton>
-						</Link>
+						<DashboardButton
+							variant="contained"
+							content="initial-scale=1, width=device-width"
+							onClick={() => loginRef.current.handleOpen()}>
+							Dashboard
+						</DashboardButton>
 					</Nav>
 				</HeaderWrap>
 			</HeaderBackground>
+			<Login ref={loginRef} />
 		</>
 	);
 };
